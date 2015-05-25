@@ -4,7 +4,7 @@
 using namespace genv;
 using namespace std;
 
-Widget::Widget( ) {}
+
 Widget::Widget( int _x, int _y, int _size_x, int _size_y, int _sr, int _sg, int _sb, string _szoveg )
 {
     x = _x;
@@ -15,6 +15,17 @@ Widget::Widget( int _x, int _y, int _size_x, int _size_y, int _sr, int _sg, int 
     sg=_sg;
     sb=_sb;
     szoveg=_szoveg;
+}
+
+Widget::Widget( int _x, int _y, int _size_x, int _size_y, string _radio1, string _radio2, string _radio3)
+{
+    x = _x;
+    y = _y;
+    size_x = _size_x;
+    size_y = _size_y;
+    radio1=_radio1;
+    radio2=_radio2;
+    radio3=_radio3;
 }
 
 bool Widget::selected( int mouse_x, int mouse_y ) const

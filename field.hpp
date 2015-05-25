@@ -28,8 +28,6 @@ protected:
     canvas c;
     bool redwin=false;
     bool greenwin=false;
-    int win_w,win_h;
-    bool nyit=true;
 
 public:
     Field (int _x, int _y, int _size_x, int _size_y, int _sr, int _sg, int _sb, string _szoveg);

@@ -5,7 +5,7 @@ using namespace genv;
 
 Application::Application( int _SX, int _SY, std::string _name ) : SX(_SX), SY(_SY), name(_name) {
     isExiting = false;
-    focused = -1;
+    focused = -1;               // a program indulásakor semmi nincs fókuszban
 }
 
 void Application::addWidget( Widget *w ) {
@@ -17,9 +17,9 @@ void Application::run() {
     gout.set_title( name );
 
     event ev;
-    while( gin>>ev && !isExiting ) {
+    while( gin>>ev && !isExiting ) {     // amíg fogadhat eseményeket és nincs kilépési módban
 
-        if( ev.keycode == key_escape )
+        if( ev.keycode == key_escape )   // esc hatására kilépünk
             isExiting = true;
 
         /// Fókusz kezelése

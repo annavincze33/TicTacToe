@@ -24,11 +24,9 @@ Field :: Field( int _x, int _y, int _size_x, int _size_y, int _sr, int _sg, int 
     size_y=_size_y;
     szoveg=_szoveg;
 
-
-
 }
 
-void Field::draw(int mouse_x, int mouse_y, event ev)
+void Field::draw(int mouse_x, int mouse_y,event ev)
 {
 
     if (start)
@@ -106,7 +104,7 @@ void Field::draw(int mouse_x, int mouse_y, event ev)
         }
         if((doboz[i]+doboz[i+40]+doboz[i+80]+doboz[i+120]+doboz[i+160])==-5)
         {
-            //cout<<"Zold vizszint"<<endl;
+            cout<<"Zold vizszint"<<endl;
             greenwin=true;
         }
         if((doboz[i]+doboz[i+41]+doboz[i+82]+doboz[i+123]+doboz[i+164])==5)
@@ -148,8 +146,10 @@ void Field::draw(int mouse_x, int mouse_y, event ev)
     }
     if(redwin)
     {
-        string wins_kep="redwins.bmp.kep";
-        kepbeolvaso(c, wins_kep, win_w, win_h);
+        c.open(size_x,size_y);
+        c << move_to(0,0) << color(0,0,0) << box(size_x,size_y)
+          <<move_to(size_x/2-50,size_y/2-20) << color(255,0,0) << text("Nyert a piros!")
+          <<move_to(size_x/2-80,size_y/2) << color(255,0,0) << text("Új játék jobb gombbal.");
         gout << stamp(c,0,0);
         if(ev.type==ev_mouse && ev.button==btn_right)
         {
@@ -159,8 +159,10 @@ void Field::draw(int mouse_x, int mouse_y, event ev)
     }
     if(greenwin)
     {
-        string wins_kep="greenwins.bmp.kep";
-        kepbeolvaso(c, wins_kep, win_w, win_h);
+        c.open(size_x,size_y);
+        c << move_to(0,0) << color(0,0,0) << box(size_x,size_y)
+          <<move_to(size_x/2-50,size_y/2-20) << color(0,255,0) << text("Nyert a zöld.")
+          <<move_to(size_x/2-80,size_y/2) << color(0,255,0) << text("Új játék jobb gombbal.");
         gout << stamp(c,0,0);
         if(ev.type==ev_mouse && ev.button==btn_right)
         {
